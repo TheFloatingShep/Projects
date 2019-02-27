@@ -1,0 +1,38 @@
+<!doctype>
+<html>
+	<head>
+		<title>Mad Libs</title>
+		<style>
+			body {
+				text-align: center;
+				font-family: times;
+			}
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<div id="title">
+			<h1>Mad Libs!</h1>
+		</div>
+		<hr>
+		<input type="text" name="input1" value="animal"><br>
+		<input type="text" name="input2" value="plural noun"><br>
+		<input type="text" name="input3" value="verb ending in ed"><br>
+		<input type="text" name="input4" value="thing"><br>
+		<input type="button" name="button" value="DONE"><br>
+		<div id="text"></div>
+	</body>
+	<script>
+		function run() {
+			var x1 = $("input[name=input1]").val();
+			var x2 = $("input[name=input2]").val();
+			var x3 = $("input[name=input3]").val();
+			var x4 = $("input[name=input4]").val();
+			console.log(x1 + x2 + x3 + x4);
+			$("#text").html("Once there was a " + x1 + " who loved " + x2 + " but then it got " + x3 + " by a " + x4 + ". The end");
+		}
+		$("input[name=button]").on("click",run)
+	</script>
+</html>

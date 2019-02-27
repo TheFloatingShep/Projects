@@ -1,0 +1,49 @@
+<!doctype>
+<html>
+	<head>
+		<title>Currency Calculator</title>
+		<style>
+			body {
+				text-align: center;
+				font-family: times;
+			}
+			#output {
+				border: 1px solid black;
+			}
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<div id="title">
+			<h1>Currency Calculator</h1>
+			<p>(As of Febuary)</p>
+		</div>
+		<hr>
+		<br><br>
+		<input type="input" name="input" value="CAD input">
+		<br><br>
+		<input type="button" name="button1" value="USD">
+		<input type="button" name="button2" value="POUNDS">
+		<input type="button" name="button3" value="YEN">
+		<br><br>
+		<div id="output">OUTPUT</div>
+	</body>
+	<script>
+		function run(press) {
+			var x = parseInt($("input[name=input]").val());
+			switch (press.target.name) {
+				case "button1" : $("#output").html("$ " + Math.round(x * 76) / 100)
+				break;
+				case "button2" : $("#output").html("£ " + Math.round(x * 58) / 100)
+				break;
+				case "button3" : $("#output").html("¥ " + Math.round(x * 8433) / 100)
+				break;
+			}
+		}
+		$("input[name=button1]").on("click",run)
+		$("input[name=button2]").on("click",run)
+		$("input[name=button3]").on("click",run)
+	</script>
+</html>

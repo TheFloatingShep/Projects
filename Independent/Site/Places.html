@@ -1,0 +1,264 @@
+<!doctype>
+
+<html>
+	<head>
+		<title>Places to go</title>
+		<style>
+			body {
+				text-align: center;
+				background-color: #777777;
+				font-family: courier;
+			}
+			div#nav {
+				top: 0px;
+				font-family: courier;
+				position: fixed;
+				border: 1px solid red;
+				left: 0px;
+				right: 0px;
+				background-color: #666666;
+			}
+			#select {
+				
+			}
+			ul {
+				list-style-type: none;
+			}
+			li {
+				border: 1px solid black;
+				text-decoration: none;
+				display: inline-block;
+			}
+			li button:hover {
+				background-color: #111111;
+				cursor: pointer;
+				color: #FE2E2E;
+			}
+			li button {
+				border: 1px solid red;
+				background-color: #FFFFFF;
+			}
+			hr {
+				border: 2px solid black;
+			}
+			#top {
+				margin-top: 75px;
+			}
+			#topTitle {
+				border: 1px solid black;
+				font-size: 30px;
+				font-family: courier;
+			}
+			#topText {
+				border: 1px solid black;
+			}
+			#place {
+			}
+			#section1 {
+				border: 2px solid black;
+				left: 8px;
+				right: 8px;
+				height: 240px;
+				display: flex;
+			}
+			#about {
+				display: inline-block;
+				left: 8px;
+				height: 240px;
+				width: 50%;
+			}
+			#place {
+				height: 30px;
+				font-size: 20px;
+			}
+			#info {
+				height: 210px;
+			}
+			#photo1 {
+				display: inline-block;
+				right: 0px;
+				height: 240px;
+				width: 50%;
+			}
+			#photo2 {
+			}
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+		<div id="nav">
+			<ul id="select">
+				<li class="link"><button id="run1" class="link">Great Barrier Reef</a></li>
+				<li class="link"><button id="run2" class="link">Pyramids of Giza</a></li>
+				<li class="link"><button id="run3" class="link">Stonehenge</a></li>
+				<li class="link"><button id="run4" class="link">Grand Canyon</a></li>
+				<li class="link"><button id="run5" class="link">Easter Island</a></li>
+				<li class="link"><button id="run6" class="link">Great Wall</a></li>
+				<li class="link"><button id="run7" class="link">Machu Picchu</a></li>
+			</ul>
+		</div>
+		<br>
+		<div id="top">
+			<div id="topTitle">7 places to go before you die</div>
+			<div id="topText">Select one of the places above</div>
+		</div>
+		<hr>
+		<div id="section1">
+			<div id="about">
+				<div id="place">Place</div>
+				<div id="info">Info</div>
+			</div>
+			<div id="photo1">
+				Photo
+			</div>
+		</div>
+		<br>
+		<div id="photo2">
+		</div>
+	</body>
+	<script>
+	// Things to do:
+	// Use data from an array and make a single function that uses array data to update page
+	// Look up how to preload images
+	var places = [ 
+			{ empty:""
+			},
+			{ name : "Great Barrier Reef",
+				desc: "The Great Barrier Reef is the world's largest coral reef system composed of over 2,900 individual reefs and 900 islands stretching for over 2,300 kilometres (1,400 mi) over an area of approximately 344,400 square kilometres (133,000 sq mi).",
+				img : "<img src='Reef1.jpg' height='240px'>",
+				img2 : "<img src='Reef2.jpg' width='80%'>"
+			},
+			{ name : "Pyramids of Giza",
+				desc: "The Great Pyramid of Giza (also known as the Pyramid of Khufu or the Pyramid of Cheops) is the oldest and largest of the three pyramids in the Giza pyramid complex bordering what is now El Giza, Egypt. It is the oldest of the Seven Wonders of the Ancient World, and the only one to remain largely intact.",
+				img : "<img src='Giza1.jpg' height='240px'>",
+				img2 : "<img src='Giza2.jpg' width='80%'>"
+			},
+			{ name : "Stonehenge",
+				desc: "Stonehenge is a prehistoric monument in Wiltshire, England, two miles (3 km) west of Amesbury. It consists of a ring of standing stones, with each standing stone around 13 feet (4.0 m) high, seven feet (2.1 m) wide and weighing around 25 tons. The stones are set within earthworks in the middle of the most dense complex of Neolithic and Bronze Age monuments in England, including several hundred burial mounds.",
+				img : "<img src='Stonehenge1.jpg' height='240px'>",
+				img2 : "<img src='Stonehenge2.jpg' width='80%'>"
+			},
+			{ name : "Grand Canyon",
+				desc: "The Grand Canyon is a steep-sided canyon carved by the Colorado River in Arizona, United States. The Grand Canyon is 277 miles (446 km) long, up to 18 miles (29 km) wide and attains a depth of over a mile (6,093 feet or 1,857 meters).",
+				img : "<img src='Canyon1.jpg' height='240px'>",
+				img2 : "<img src='Canyon2.jpg' width='80%'>"
+			},
+			{ name : "Easter Island",
+				desc: "Easter Island is a Chilean island in the southeastern Pacific Ocean, at the southeasternmost point of the Polynesian Triangle in Oceania. Easter Island is most famous for its nearly 1,000 extant monumental statues, called moai, created by the early Rapa Nui people.",
+				img : "<img src='Easter1.jpg' height='240px'>",
+				img2 : "<img src='Easter2.jpg' width='80%'>"
+			},
+			{ name : "Great Wall of China",
+				desc: "The Great Wall of China is a series of fortifications made of stone, brick, tamped earth, wood, and other materials, generally built along an east-to-west line across the historical northern borders of China to protect the Chinese states and empires against the raids and invasions of the various nomadic groups of the Eurasian Steppe with an eye to expansion.",
+				img : "<img src='Wall1.jpg' height='240px'>",
+				img2 : "<img src='Wall2.jpg' width='80%'>"
+			},
+			{ name : "Machu Picchu",
+				desc: "Machu Picchu is a 15th-century Inca citadel, located in the Eastern Cordillera of southern Peru, on a mountain ridge 2,430 metres (7,970 ft) above sea level.",
+				img : "<img src='Machu1.jpg' height='240px'>",
+				img2 : "<img src='Machu2.jpg' width='80%'>"
+			}
+		]
+		var choice;
+	//Great Barrier Reef
+		function do1() {
+			choice = 1;
+			display();
+		}
+	//Pyramids of Giza
+		function do2() {
+			choice = 2;
+			display();
+		}
+	//Stonehenge
+		function do3() {
+			choice = 3;
+			display();
+		}
+	//Grand Canyon
+		function do4() {
+			choice = 4;
+			display();
+		}
+	//Easter Island
+		function do5() {
+			choice = 5;
+			display();
+		}
+	//Great Wall
+		function do6() {
+			choice = 6;
+			display();
+		}
+	//Machu Picchu
+		function do7() {
+			choice = 7;
+			display();
+		}
+		
+		function display() {
+			document.getElementById("place").innerHTML = places[choice].name;
+			document.getElementById("info").innerHTML = places[choice].desc;
+			document.getElementById("photo1").innerHTML = places[choice].img;
+			document.getElementById("photo2").innerHTML = places[choice].img2;
+		}
+		
+		document.getElementById("run1").addEventListener("click",do1);
+		document.getElementById("run2").addEventListener("click",do2);
+		document.getElementById("run3").addEventListener("click",do3);
+		document.getElementById("run4").addEventListener("click",do4);
+		document.getElementById("run5").addEventListener("click",do5);
+		document.getElementById("run6").addEventListener("click",do6);
+		document.getElementById("run7").addEventListener("click",do7);
+		
+// Preloads images (hopefully)
+		function preloader() {
+			if (document.images) {
+				var img1 = new Image();
+				var img2 = new Image();
+				var img3 = new Image();
+				var img4 = new Image();
+				var img5 = new Image();
+				var img6 = new Image();
+				var img7 = new Image();
+				var img8 = new Image();
+				var img9 = new Image();
+				var img10 = new Image();
+				var img11 = new Image();
+				var img12 = new Image();
+				var img13 = new Image();
+				var img14 = new Image();
+
+				img1.src = "Reef1.jpg";
+				img2.src = "Reef2.jpg";
+				img3.src = "Giza1.jpg";
+				img4.src = "Giza2.jpg";
+				img5.src = "Stonehenge1.jpg";
+				img6.src = "Stonehenge2.jpg";
+				img7.src = "Canyon1.jpg";
+				img8.src = "Canyon2.jpg";
+				img9.src = "Easter1.jpg";
+				img10.src = "Easter2.jpg";
+				img11.src = "Wall1.jpg";
+				img12.src = "Wall2.jpg";
+				img13.src = "Machu1.jpg";
+				img14.src = "Machu2.jpg";
+			}
+		}
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function() {
+					if (oldonload) {
+						oldonload();
+					}
+					func();
+				}
+			}
+		}
+		addLoadEvent(preloader);
+	</script>
+</html>

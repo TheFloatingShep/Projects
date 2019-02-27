@@ -1,0 +1,43 @@
+<!doctype>
+<html>
+	<head>
+		<title>Pythagorean</title>
+		<style>
+			body {
+				text-align: center;
+				font-family: times;
+			}
+			div {
+				border: 1px solid black;
+			}
+			#output {
+				width: 200px;
+				display: inline-block;
+			}
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<div id="title">
+			<h1>Pythagorean calculator</h1>
+		</div>
+		<hr>
+		<input type="input" name="input1" value="Side A">
+		<input type="input" name="input2" value="Side B">
+		<br><br>
+		<input type="button" name="button" value="Calculate!">
+		<br><br>
+		<div id="output">Output</div>
+	</body>
+	<script>
+		function run() {
+			var a = parseFloat($("input[name=input1]").val());
+			var b = parseFloat($("input[name=input2]").val());
+			$("#output").html(Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)))
+		}
+		
+		$("input[name=button]").on("click",run)
+	</script>
+</html>
