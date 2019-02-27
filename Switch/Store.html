@@ -1,0 +1,47 @@
+<!doctype>
+<html>
+	<head>
+		<title>Online Store</title>
+		<style>
+			body {
+				text-align: center;
+			}
+			#result {
+				border: 1px solid black;
+				width: 200px;
+				display: inline-block;
+			}
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<h1>Backend for an online store</h1>
+		<div>Enter product number</div>
+		<hr>
+		<input type="text" name="input1" value="eg 123">
+		<input type="button" name="button" value="Search">
+		<br><br>
+		<div id="result">product</div>
+	</body>
+	<script>
+		function run() {
+		console.log("run");
+			var num = 1;
+			switch (num) {
+				case "1" : document.getElementById("result").innerHTML = "2";
+				break;
+				case "2" : document.getElementById("result").innerHTML = "1";
+				break;
+				case "3" : document.getElementById("result").innerHTML = "5";
+				break;
+				case "4" : document.getElementById("result").innerHTML = "3";
+				break;
+				case "5" : document.getElementById("result").innerHTML = "2";
+				break;
+			}
+		}
+		$("input[name=button]").on("click",run)
+	</script>
+</html>
