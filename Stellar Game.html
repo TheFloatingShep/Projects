@@ -1,0 +1,1363 @@
+<!doctype>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+		<title>S T E L L A R</title>
+		<style>
+	/* BODY */
+			body {
+				text-align: center;
+				user-select: none;
+				background-color: #555555;
+			}
+			hr {
+				border: 2px solid #c10101;
+			}
+			#game {
+				border: 2px solid black;
+				padding: 10px;
+				width: 600px;
+				margin: auto;
+				background-color: #888888;
+				border-radius: 3px 10px 3px 10px;
+			}
+			#title {
+				font-size: 50px;
+				color: #c10101;
+			}
+	/* BASIC INFO */
+			#info {
+				padding: 10px;
+			}
+			.info {
+				border: 1px solid black;
+				display: inline-block;
+				height: 30px;
+				padding: 5px;
+				width: 45%;
+				
+			}
+			#name {
+				border-radius: 10px 3px 3px 10px;
+			}
+			#explored {
+				border-radius: 3px 10px 10px 3px;
+			}
+	/* MATERIALS */
+			#material {
+				padding: 5px;
+				height: 40px;
+			}
+			.material {
+				border: 1px solid black;
+				display: inline-block;
+				padding: 1px;
+				width: 20%;
+				height: 30px;
+				transition: 0.2s;
+				position: relative;
+				border-radius: 3px;
+			}
+			.bar {
+				background-color: #c10101;
+				height: 30px;
+				transition: 0.2s;
+				border-radius: 3px;
+			}
+		/* bar text currently not in use */
+			.barText {
+				position: absolute;
+				padding: 2px;
+			}
+			i {
+				font-size: 20px;
+			}
+	/* EVENT & CHOICES */
+			#event {
+				border: 1px solid black;
+				border-radius: 5px;
+			}
+			.event {
+				height: 30px;
+				padding: 5px;
+			}
+			#display {
+				padding: 10px;
+			}
+			#choices {
+				padding: 10px;
+			}
+			.choices {
+				border: 1px solid black;
+				display: inline-block;
+				padding: 5px;
+				width: 45%;
+				transition: 0.2s;
+			}
+			.choices:hover {
+				background-color: #c10101;
+				cursor: default;
+			}
+			#choice1 {
+				border-radius: 10px 2px 2px 10px;
+			}
+			#choice2 {
+				border-radius: 2px 10px 10px 2px;
+			}
+	/* Continue Game */
+			#continue {
+				border: 2px solid black;
+				margin: 0 auto;
+				width: 200px;
+				padding: 5px;
+				background-color: #888888;
+				border-radius: 10px;
+			}
+			.continue {
+				border: 1px solid black;
+				display: inline-block;
+				padding: 2px;
+				transition: 0.2s;
+				border-radius: 2px;
+			}
+			.continue:hover {
+				background-color: #c10101;
+				cursor: default;
+			}
+	/* Start Menu */
+			#startMenu {
+				border: 2px solid black;
+				margin: 0 auto;
+				padding: 20px;
+				width: 80%;
+				background-color: #888888;
+				border-radius: 10px;
+			}
+			#startTitle {
+				font-weight: bold;
+				font-size: 20px;
+			}
+			#help {
+				border: 1px solid black;
+				padding: 3px;
+				width: 100px;
+				margin: 0 auto;
+				transition: 0.2s;
+				border-radius: 10px;
+				font-weight: bold;
+				background-color: #999999;
+			}
+			#help:hover {
+				background-color: #c10101;
+				cursor: default;
+			}
+			#startGame {
+				border: 1px solid black;
+				display: inline-block;
+				padding: 2px;
+				transition: 0.2s;
+				font-weight: bold;
+				border-radius: 10px;
+			}
+			#startGame:hover {
+				background-color: #c10101;
+				cursor: default;
+			}
+			#enterName {
+				border-radius: 3px;
+				padding: 2px;
+				background-color: #777777;
+				border: 1px solid #777777;
+				width: 150px;
+				transition: width .35s ease-in-out;
+			}
+			#enterName:focus {
+				width: 300px;
+			}
+	/* Death */
+			#death {
+				border: 2px solid black;
+				width: 200px;
+				margin: 0 auto;
+				padding: 10px;
+				border-radius: 10px;
+				background-color: #888888;
+			}
+			#deathTitle {
+				padding: 2px;
+				font-weight: bold;
+				font-size: 20px;
+			}
+			#deathText {
+				padding: 5px;
+			}
+			#deathButton {
+				border: 1px solid black;
+				transition: 0.2s;
+				padding: 2px;
+				font-weight: bold;
+				border-radius: 10px;
+			}
+			#deathButton:hover {
+				background-color: #c10101;
+				cursor: default;
+			}
+	/* Tutorial */
+			#tutorial {
+				border: 2px solid black;
+				width: 80%;
+				margin: 0 auto;
+				padding: 10px;
+				border-radius: 10px;
+				background-color: #888888;
+			}
+			#tutorialTitle {
+				padding: 2px;
+				font-weight: bold;
+				font-size: 20px;
+			}
+			#tutorialText {
+				padding: 2px;
+			}
+			#tutorialClose {
+				border: 1px solid black;
+				transition: 0.2s;
+				padding: 2px;
+				font-weight: bold;
+				border-radius: 10px;
+			}
+			#tutorialClose:hover {
+				background-color: #c10101;
+				cursor: default;
+			}
+		</style>
+	</head>
+	<body onLoad="start()">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<hr>
+		<div id="title">
+			S T E L L A R
+		</div>
+		<hr>
+		<div id="game">
+			<div id="info">
+				<div class="info" id="name">NAME</div>
+				<div class="info" id="explored">Sectors Explored</div>
+			</div>
+			<div id="material">
+				<div class="material" id="fuel">	<div class="barText" id="fuelText"><i class="fas fa-gas-pump"></i></div>	<div class="bar" id="fuelBar"></div>	</div>
+				<div class="material" id="crew">	<div class="barText" id="crewText"><i class="fas fa-user-friends"></i></div>	<div class="bar" id="crewBar"></div>	</div>
+				<div class="material" id="metal">	<div class="barText" id="metalText"><i class="fas fa-weight-hanging"></i></div>	<div class="bar" id="metalBar"></div>	</div>
+				<div class="material" id="credit">	<div class="barText" id="creditText"><i class="fas fa-coins"></i></div>	<div class="bar" id="creditBar"></div>	</div>
+			</div>
+			<div id="event">
+				<div class="event" id="display">Event</div>
+				<div class="event" id="choices">
+					<div class="choices" id="choice1">Choice 1</div>
+					<div class="choices" id="choice2">Choice 2</div>
+				</div>
+			</div>
+		</div>
+		<div id="continue">
+			<div id="continueText">Continue Game?</div>
+			<div id="yes" class="continue">YES</div>
+			<div id="no" class="continue">NO</div>
+		</div>
+		<div id="startMenu">
+			<div id="startTitle">New Game</div>
+			<div id="startTutorial"><p>You are the captain of a private space exploration vessel. Your actions dictate the outcome of your journey. Don't run out of resources to stay alive. Enter name to begin</p></div>
+			<div id="help">TUTORIAL</div><br>
+			<input type="text" id="enterName" name="inputName" maxlength="20" value="">
+			<br><br>
+			<div id="startGame">START</div>
+		</div>
+		<div id="death">
+			<div id="deathTitle">YOU DIED</div>
+			<div id="deathExplored"></div>
+			<div id="deathText"></div>
+			<div id="deathButton">OK</div>
+		</div>
+		<div id="tutorial">
+			<div id="tutorialTitle">Tutorial</div>
+			<div id="tutorialText"><p>Enter your name in the text box and click start to begin game. You have 4 resources you must keep track of: Fuel, Crew, Metal, and Credit. You lose if any of these resources depletes or if you have too much crew, metal or Credit. At the start of your turn, an event will appear. Pick one of the two options at the bottom. These options will affect your resources. After every choice, you will have explored one sector, which will appear in the top right. Explore as many sectors as possible before death.</p></div>
+			<div id="tutorialClose">CLOSE</div>
+		</div>
+	</body>
+	<script>
+// Information
+		let information = {
+			name : "",
+			explored : 0,
+			fuel : 50,
+			crew : 50,
+			metal : 50,
+			credit : 50
+		};
+		
+// Storing & Retrieving
+		let data = {
+			name : "",
+			explored : "",
+			fuel : "",
+			crew : "",
+			metal : "",
+			credit : ""
+		};
+		let game;
+		let turnTime = 0;
+		let eventOutcome;
+		let currentEvent;
+		
+// Events
+	/**
+		+ = small increase
+		++ = large increase
+		- = small decrease
+		-- = large decrease
+	**/
+		// List of all possible events - BALANCE EVENTS
+		let eventNum = 26;
+		let events = [
+			{
+				text : "There was an engine malfunction",
+				choice1 : "Repair it",
+				choice2 : "Buy a new engine",
+				text1 : "Your engine repairs were not enough",
+				text2 : "Engine prices were higher than usual",
+				output1 : {
+					fuel : "",
+					crew : "",
+					metal : "--",
+					credit : ""
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : "--"
+				}
+			},
+			{
+				text : "There was an engine malfunction",
+				choice1 : "Repair it",
+				choice2 : "Buy a new engine",
+				text1 : "You repaired the engine",
+				text2 : "You bought a new engine",
+				output1 : {
+					fuel : "",
+					crew : "",
+					metal : "-",
+					credit : ""
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : "-"
+				}
+			},
+			{
+				text : "The interstellar police came to claim your taxes",
+				choice1 : "Pay up",
+				choice2 : "Fight them off",
+				text1 : "You payed your taxes",
+				text2 : "You destroyed the police ship",
+				output1 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : "-"
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "-",
+					credit : ""
+				}
+			},
+			{
+				text : "You're near earth",
+				choice1 : "Go stock up",
+				choice2 : "Ignore it",
+				text1 : "You stocked up on resources",
+				text2 : "Nothing happened",
+				output1 : {
+					fuel : "+",
+					crew : "+",
+					metal : "+",
+					credit : ""
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "You discovered an asteroid with rare metals",
+				choice1 : "Keep the metals",
+				choice2 : "Sell the metals",
+				text1 : "You kept the metals",
+				text2 : "You sold the metals for lots of profit",
+				output1 : {
+					fuel : "",
+					crew : "",
+					metal : "+",
+					credit : ""
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : "++"
+				}
+			},
+			{
+				text : "Your ship is caught in the gravity of a worm hole",
+				choice1 : "Get out",
+				choice2 : "Go throught the worm hole",
+				text1 : "You couldn't escape the wormhole and went through",
+				text2 : "You braced as you went throught the wormhole",
+				output1 : {
+					fuel : "--",
+					crew : "-",
+					metal : "--",
+					credit : ""
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "-",
+					credit : ""
+				}
+			},
+			{
+				text : "A pirate fleet is chasing you",
+				choice1 : "Out run them",
+				choice2 : "Hide on a planet",
+				text1 : "You out ran them",
+				text2 : "You hid on an empty planet",
+				output1 : {
+					fuel : "--",
+					crew : "",
+					metal : "",
+					credit : ""
+				},
+				output2 : {
+					fuel : "-",
+					crew : "",
+					metal : "-",
+					credit : ""
+				}
+			},
+			{
+				text : "You found a disabled ship with a few life signs",
+				choice1 : "Save the crew",
+				choice2 : "Scavenge it",
+				text1 : "You saved some space travellers",
+				text2 : "Some soldiers fought back with no success",
+				output1 : {
+					fuel : "",
+					crew : "+",
+					metal : "+",
+					credit : "+"
+				},
+				output2 : {
+					fuel : "+",
+					crew : "-",
+					metal : "+",
+					credit : "+"
+				}
+			},
+			{
+				text : "You stopped at a resource station",
+				choice1 : "Buy resources",
+				choice2 : "Sell resources",
+				text1 : "You used the engine",
+				text2 : "You sold the engine",
+				output1 : {
+					fuel : "+",
+					crew : "+",
+					metal : "+",
+					credit : "--"
+				},
+				output2 : {
+					fuel : "-",
+					crew : "-",
+					metal : "-",
+					credit : "++"
+				}
+			},
+			{
+				text : "You discovered a more effective engine",
+				choice1 : "Use it",
+				choice2 : "Sell it",
+				text1 : "You used the engine",
+				text2 : "You sold the engine",
+				output1 : {
+					fuel : "++",
+					crew : "",
+					metal : "",
+					credit : ""
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : "++"
+				}
+			},
+			{
+				text : "Your ship is caught in solar flares",
+				choice1 : "Escape",
+				choice2 : "Save fuel",
+				text1 : "You escaped",
+				text2 : "Your ship took minimal damage",
+				output1 : {
+					fuel : "-",
+					crew : "",
+					metal : "",
+					credit : ""
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "-",
+					credit : ""
+				}
+			},
+			{
+				text : "Foreign planet nearby",
+				choice1 : "Stop for refueling",
+				choice2 : "Ignore it",
+				text1 : "You fill up on fuel",
+				text2 : "Nothing happens",
+				output1 : {
+					fuel : "++",
+					crew : "",
+					metal : "+",
+					credit : "-"
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "Foreign planet nearby",
+				choice1 : "Stop for refueling",
+				choice2 : "Ignore it",
+				text1 : "Prices were higher this time",
+				text2 : "Nothing happens",
+				output1 : {
+					fuel : "+",
+					crew : "",
+					metal : "+",
+					credit : "--"
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "Some crew members demand more pay",
+				choice1 : "Let them leave",
+				choice2 : "Pay them off",
+				text1 : "Some crew leaves",
+				text2 : "You pay off the crew",
+				output1 : {
+					fuel : "",
+					crew : "-",
+					metal : "",
+					credit : "+"
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : "-"
+				}
+			},
+			{
+				text : "Supernova nearby",
+				choice1 : "Explore it",
+				choice2 : "Ignore it",
+				text1 : "You converted some stardust into fuel but took some damage",
+				text2 : "Nothing happened",
+				output1 : {
+					fuel : "+",
+					crew : "",
+					metal : "-",
+					credit : ""
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "Foreign ship approaching",
+				choice1 : "Talk to them",
+				choice2 : "Run",
+				text1 : "They trade you resources",
+				text2 : "You escape",
+				output1 : {
+					fuel : "++",
+					crew : "",
+					metal : "+",
+					credit : ""
+				},
+				output2 : {
+					fuel : "-",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "Foreign ship approaching",
+				choice1 : "Talk to them",
+				choice2 : "Run",
+				text1 : "They attack your ship",
+				text2 : "You escape",
+				output1 : {
+					fuel : "-",
+					crew : "",
+					metal : "-",
+					credit : ""
+				},
+				output2 : {
+					fuel : "-",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "Pirate vessel approaches",
+				choice1 : "Attack",
+				choice2 : "Run",
+				text1 : "Pirate vessel destroyed. Sustained minimal damage & casualties",
+				text2 : "Pirate vessel chased you before retreating",
+				output1 : {
+					fuel : "",
+					crew : "-",
+					metal : "-",
+					credit : "+"
+				},
+				output2 : {
+					fuel : "--",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "Pirate vessel approaches",
+				choice1 : "Attack",
+				choice2 : "Run",
+				text1 : "Pirate vessel destroyed. Sustained heavy damage",
+				text2 : "Pirate vessel ignores you",
+				output1 : {
+					fuel : "",
+					crew : "--",
+					metal : "--",
+					credit : "+"
+				},
+				output2 : {
+					fuel : "-",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "Pirate vessel approaches",
+				choice1 : "Attack",
+				choice2 : "Run",
+				text1 : "Pirate vessel destroyed. You took prisoners",
+				text2 : "Pirate vessel chased you before retreating",
+				output1 : {
+					fuel : "",
+					crew : "++",
+					metal : "-",
+					credit : "+"
+				},
+				output2 : {
+					fuel : "-",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "Mineral rich asteroid",
+				choice1 : "Mine",
+				choice2 : "Ignore",
+				text1 : "You mined the asteroid",
+				text2 : "Nothing happened",
+				output1 : {
+					fuel : "+",
+					crew : "",
+					metal : "+",
+					credit : "-"
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "Destress signal",
+				choice1 : "Help",
+				choice2 : "Ignore",
+				text1 : "You scavenged an empty ship",
+				text2 : "Nothing happened",
+				output1 : {
+					fuel : "+",
+					crew : "+",
+					metal : "+",
+					credit : ""
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "Destress signal",
+				choice1 : "Help",
+				choice2 : "Ignore",
+				text1 : "It was a trap!",
+				text2 : "Nothing happened",
+				output1 : {
+					fuel : "-",
+					crew : "-",
+					metal : "-",
+					credit : ""
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "",
+					credit : ""
+				}
+			},
+			{
+				text : "Enemy fleet approaching",
+				choice1 : "Hide in the nebula",
+				choice2 : "Hide in the asteroid belt",
+				text1 : "You extracted some fuel while hiding",
+				text2 : "You mined some metal while hiding",
+				output1 : {
+					fuel : "++",
+					crew : "",
+					metal : "",
+					credit : ""
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "++",
+					credit : ""
+				}
+			},
+			{
+				text : "You stopped at a mining outpost",
+				choice1 : "Buy some metal",
+				choice2 : "Sell some metal",
+				text1 : "You bought some metal",
+				text2 : "You sold some metal",
+				output1 : {
+					fuel : "",
+					crew : "",
+					metal : "+",
+					credit : "-"
+				},
+				output2 : {
+					fuel : "",
+					crew : "",
+					metal : "-",
+					credit : "+"
+				}
+			},
+			{
+				text : "You stopped at a fuel station",
+				choice1 : "Buy some fuel",
+				choice2 : "Sell some fuel",
+				text1 : "You bought some fuel",
+				text2 : "You sold some fuel",
+				output1 : {
+					fuel : "+",
+					crew : "",
+					metal : "",
+					credit : "-"
+				},
+				output2 : {
+					fuel : "-",
+					crew : "",
+					metal : "",
+					credit : "+"
+				}
+			},
+			{
+				text : "You stopped at a fuel station",
+				choice1 : "Buy a lot of fuel",
+				choice2 : "Sell a lot of fuel",
+				text1 : "You bought a lot fuel",
+				text2 : "You sold a lot fuel",
+				output1 : {
+					fuel : "++",
+					crew : "",
+					metal : "",
+					credit : "--"
+				},
+				output2 : {
+					fuel : "--",
+					crew : "",
+					metal : "",
+					credit : "++"
+				}
+			}
+		]
+		
+// On Load and after death
+		// Checks to see if continue game menu should appear
+		function start() {
+			data = JSON.parse(localStorage.getItem("Stored"));
+			gameContinue = JSON.parse(localStorage.getItem("upGame"));
+			currentEvent = JSON.parse(localStorage.getItem("nowEvent"));
+			$("#continue").css("display","none");
+			$("#startMenu").css("display","none");
+			$("#game").css("display","none");
+			$("#death").css("display","none");
+			$("#tutorial").css("display","none");
+			$("#enterName").val("");
+			if (gameContinue == "yes") {
+				$("#continue").css("display","block");
+				$("#game").css("display","none");
+			}
+			else {
+				startMenu();
+			}
+		}
+		
+// Start Menu & Game
+		// Reveals Game
+		function startGame() {
+			data = information;
+			information.name = $("input[name=inputName]").val();
+			$("#game").css("display","block");
+			$("#startMenu").css("display","none");
+			$("#continue").css("display","none");
+			turnTime = 0;
+			render();
+			launch();
+		}
+		// Displays start menu
+		function startMenu() {
+			$("#startMenu").css("display","block");
+			$("#continue").css("display","none");
+			$("#startGame").css("display","none");
+			localStorage.clear();
+		}
+		// Enables start button
+		$("input[name=inputName").change(
+			function() {
+				$("#startGame").css("display","block");
+			}
+		)
+		
+		$("#startGame").on("click", startGame);
+		
+// Continue Menu & Game
+		// Continue Game Menu
+		function doContinue(evt) {
+			if (evt.target.id == "no") {
+				startMenu();
+			}
+			else {
+				continueGame();
+			}
+		}
+		// Continues the Game
+		function continueGame() {
+			information = data;
+			$("#startMenu").css("display","none");
+			$("#continue").css("display","none");
+			$("#game").css("display","block");
+			turnTime = JSON.parse(localStorage.getItem("nowTurn"))
+			turn();
+			render();
+		}
+		
+		$(".continue").on("click",doContinue);
+		
+// TUTORIAL
+		function openTutorial() {
+			$("#startMenu").css("display","none");
+			$("#tutorial").css("display","block");
+		}
+		
+		function closeTutorial() {
+			$("#startMenu").css("display","block");
+			$("#tutorial").css("display","none");
+		}
+		
+		$("#help").on("click",openTutorial);
+		$("#tutorialClose").on("click",closeTutorial);
+		
+// TURN
+		function turn(evt) {
+			switch (turnTime) {
+			// Start of event - DISPLAYS CHOICES
+				case 0 : 
+					// Check to see if game has been reloaded
+					if (gameContinue == "yes") {
+						gameContinue = "no";
+					}
+					else {
+						currentEvent = Math.floor(Math.random() * eventNum);
+					}
+					localStorage.setItem("nowEvent", JSON.stringify(currentEvent))
+					$("#display").html(events[currentEvent].text);
+					$("#choice1").html(events[currentEvent].choice1);
+					$("#choice2").html(events[currentEvent].choice2);
+					localStorage.setItem("nowTurn", JSON.stringify(turnTime))
+					turnTime = 1;
+					// Hovering will show what will be affected 
+					$(".choices").hover(
+						function(evt){
+							if (turnTime == 1) {
+								let colour = "#555555"
+								switch (evt.target.id) {
+									case "choice1" : thisEvent = events[currentEvent].output1;
+									break;
+									case "choice2" : thisEvent = events[currentEvent].output2;
+									break;
+								}
+								switch (thisEvent.fuel) {
+									case "+" : $("#fuel").css("background-color", colour);
+									break;
+									case "++" :	$("#fuel").css("background-color", colour);
+									break;
+									case "-" : $("#fuel").css("background-color", colour);
+									break; 
+									case "--" : $("#fuel"). css("background-color", colour);
+									break;
+								}
+								switch (thisEvent.crew) {
+									case "+" : $("#crew").css("background-color", colour);
+									break;
+									case "++" :	$("#crew").css("background-color", colour);
+									break;
+									case "-" : $("#crew").css("background-color", colour);
+									break; 
+									case "--" : $("#crew").css("background-color", colour);
+									break;
+								}
+								switch (thisEvent.metal) {
+									case "+" : $("#metal").css("background-color", colour);
+									break;
+									case "++" :	$("#metal").css("background-color", colour);
+									break;
+									case "-" : $("#metal").css("background-color", colour);
+									break; 
+									case "--" : $("#metal").css("background-color", colour);
+									break;
+								}
+								switch (thisEvent.credit) {
+									case "+" : $("#credit").css("background-color", colour);
+									break;
+									case "++" :	$("#credit").css("background-color", colour);
+									break;
+									case "-" : $("#credit").css("background-color", colour);
+									break; 
+									case "--" : $("#credit").css("background-color", colour);
+									break;
+								}
+							}
+							else {
+								thisEvent = "";
+							}
+						}, 
+						function(){
+							$(".material").css("background-color", "#888888");
+						}
+					);
+					
+			// Not enought materials will lead to death
+					if (information.fuel <= 0) {
+						$("#display").html("You ran out of fuel!")
+						$(".choices").html("What");
+						turnTime = 2
+						information.fuel = 0;
+						render();
+						$("#deathText").html("You drift into the endless nothingness until life support systems shut down, taking you with it")
+					}
+					if (information.crew <= 0) {
+						$("#display").html("You ran out of crew!")
+						$(".choices").html("What");
+						turnTime = 2
+						information.crew = 0;
+						render();
+						$("#deathText").html("Without crew, you cannot maintain the ship, leading to the inevitable destruction of you and your ship")
+					}
+					if (information.metal <= 0) {
+						$("#display").html("You ran out of metal!")
+						$(".choices").html("What");
+						turnTime = 2
+						information.metal = 0;
+						render();
+						$("#deathText").html("Without metal, you couldn't make proper repairs to the ship, leading to its destruction")
+					}
+					if (information.credit <= 0) {
+						$("#display").html("You ran out of credit!")
+						$(".choices").html("What");
+						turnTime = 2
+						information.credit = 0;
+						render();
+						$("#deathText").html("Your crew mutiny against you due to a lack of pay. A new captain takes over")
+					}
+			// Too much materials will lead to death
+					if (information.crew >= 100) {
+						$("#display").html("You had too much crew!")
+						$(".choices").html("What");
+						turnTime = 2
+						information.crew = 100;
+						render();
+						$("#deathText").html("The crew mutinied against you because you couldn't sustain the crew size")
+					}
+					if (information.credit >= 100) {
+						$("#display").html("You had too much credit!")
+						$(".choices").html("What");
+						turnTime = 2
+						information.credit = 100;
+						render();
+						$("#deathText").html("Your crew mutinied for your credit")
+					}
+					if (information.metal >= 100) {
+						$("#display").html("You had too much metal!")
+						$(".choices").html("What");
+						turnTime = 2
+						information.credit = 100;
+						render();
+						$("#deathText").html("Your ship is too heavy to move")
+					}
+					
+			// Flashes material when low 
+				// When below 25 and above 75 (crew and credit only)
+					if (information.fuel <= 25) {
+						let fuelTimerOn = 0;
+						let timer;
+						startCount();
+						
+						function count1() {
+							$("#fuelBar").css("background-color", "#FE3B3B");
+							$("#fuel").css("border", "1px solid #FE3B3B");							
+							timer = setTimeout(count2, 500);
+						}
+						function count2() {
+							$("#fuelBar").css("background-color", "#c10101");
+							$("#fuel").css("border", "1px solid black");	
+							if (information.fuel > 25) {
+								stopCount();
+							}
+							else {
+								timer = setTimeout(count1, 500);
+							}
+						}
+						
+						function startCount() {
+						  if (!fuelTimerOn) {
+							fuelTimerOn = 1;
+							count1();
+						  }
+						}
+						
+						function stopCount() {
+						  clearTimeout(timer);
+						  fuelTimerOn = 0;
+						}
+					}
+					if (information.crew <= 25 || information.crew >= 75) {
+						let crewTimerOn = 0;
+						let timer;
+						startCount();
+						function count1() {
+							$("#crewBar").css("background-color", "#FE3B3B"); 
+							$("#crew").css("border", "1px solid #FE3B3B");
+							timer = setTimeout(count2, 500);
+						}
+						function count2() {
+							$("#crewBar").css("background-color", "#c10101");
+							$("#crew").css("border", "1px solid black");
+							if (information.crew > 25 && information.crew < 75) {
+								stopCount();
+							}
+							else {
+								timer = setTimeout(count1, 500);
+							}
+						}
+						
+						function startCount() {
+						  if (!crewTimerOn) {
+							crewTimerOn = 1;
+							count1();
+						  }
+						}
+						
+						function stopCount() {
+						  clearTimeout(timer);
+						  crewTimerOn = 0;
+						}
+					}
+					if (information.metal <= 25 || information.metal >= 75) {
+						let metalTimerOn = 0;
+						let timer;
+						startCount();
+						
+						function count1() {
+							$("#metalBar").css("background-color", "#FE3B3B"); 
+							$("#metal").css("border", "1px solid #FE3B3B");
+							timer = setTimeout(count2, 500);
+						}
+						function count2() {
+							$("#metalBar").css("background-color", "#c10101");
+							$("#metal").css("border", "1px solid black");
+							if (information.metal > 25 && information.metal < 75) {
+								stopCount();
+							}
+							else {
+								timer = setTimeout(count1, 500);
+							}
+						}
+						
+						function startCount() {
+						  if (!metalTimerOn) {
+							metalTimerOn = 1;
+							count1();
+						  }
+						}
+						
+						function stopCount() {
+						  clearTimeout(timer);
+						  metalTimerOn = 0;
+						}
+					}
+					if (information.credit <= 25 || information.credit > 75) {
+						let creditTimerOn = 0;
+						let timer;
+						startCount();
+						
+						function count1() {
+							$("#creditBar").css("background-color", "#FE3B3B"); 
+							$("#credit").css("border", "1px solid #FE3B3B");
+							timer = setTimeout(count2, 500);
+						}
+						function count2() {
+							$("#creditBar").css("background-color", "#c10101");
+							$("#credit").css("border", "1px solid black");
+							if (information.credit > 25 && information.credit < 75) {
+								stopCount();
+							}
+							else {
+								timer = setTimeout(count1, 500);
+							}
+						}
+						
+						function startCount() {
+						  if (!creditTimerOn) {
+							creditTimerOn = 1;
+							count1();
+						  }
+						}
+						
+						function stopCount() {
+						  clearTimeout(timer);
+						  creditTimerOn = 0;
+						}
+					}
+					localStorage.setItem("Stored", JSON.stringify(information))
+					game = "yes";
+					localStorage.setItem("upGame", JSON.stringify(game))
+				break;
+			// End of event - DISPLAYS OUTCOME
+				case 1 : 
+					// Check to see if game has been reloaded
+					if (gameContinue == "yes") {
+						gameContinue = "no";
+						let tempOutcome = JSON.parse(localStorage.getItem("nowOutcome"))
+						$("#display").html(tempOutcome);
+						$(".choices").html("OK");
+						turnTime = 0;
+						localStorage.setItem("nowTurn", JSON.stringify(turnTime))
+					}
+					else {
+						switch (evt.target.id) {
+						case "choice1" :
+							$("#display").html(events[currentEvent].text1);
+							$(".choices").html("OK");
+							localStorage.setItem("nowTurn", JSON.stringify(turnTime))
+							turnTime = 0;
+							outcome(events[currentEvent].output1);
+							eventOutcome = events[currentEvent].text2
+							information.fuel -= 5;
+							information.explored ++;
+							localStorage.setItem("nowOutcome", JSON.stringify(eventOutcome))
+						break;
+						case "choice2" :
+							$("#display").html(events[currentEvent].text2);
+							$(".choices").html("OK");
+							localStorage.setItem("nowTurn", JSON.stringify(turnTime))
+							turnTime = 0;
+							outcome(events[currentEvent].output2);
+							eventOutcome = events[currentEvent].text2
+							information.fuel -= 5;
+							information.explored ++;
+							localStorage.setItem("nowOutcome", JSON.stringify(eventOutcome))
+						break;
+						}
+					}
+					localStorage.setItem("Stored", JSON.stringify(information))
+					game = "yes";
+					localStorage.setItem("upGame", JSON.stringify(game))
+					// Cannot go below 0
+					if (information.fuel <= 0) {
+						information.fuel = 0;
+					}
+					if (information.crew <= 0) {
+						information.crew = 0;
+					}
+					if (information.metal <= 0) {
+						information.metal = 0;
+					}
+					if (information.credit <= 0) {
+						information.credit = 0;
+					}
+					// Cannot go above 100
+					if (information.fuel >= 100) {
+						information.fuel = 100;
+					}
+					if (information.crew >= 100) {
+						information.crew = 100;
+					}
+					if (information.metal >= 100) {
+						information.metal = 100;
+					}
+					if (information.credit >= 100) {
+						information.credit = 100;
+					}
+				break;
+		// When you run out of a resource - DISPLAYS DEATH
+				case 2 :
+					$("#deathExplored").html("You explored " + information.explored + " sectors.")
+					localStorage.clear();
+					$("#death").css("display","block");
+					$("#game").css("display","none");
+					information = {
+						name : "",
+						explored : 0,
+						fuel : 50,
+						crew : 50,
+						metal : 50,
+						credit : 50
+					};
+				break;
+			}
+			render();
+		}
+		// Death button
+		$("#deathButton").on("click",start);
+		
+// CALCULATE AND DISPLAY OUTCOME OF EVENT
+		function outcome(correctOutcome) {
+		// REMEMBER -> correctOutcome = events[currentEvent.output]
+			function little() {
+				let littleVar = Math.ceil(Math.random() * (20 - 15) + 15); 
+				return littleVar;
+			}
+			function lot() {
+				let lotVar = Math.ceil(Math.random() * (33 - 28) + 28);
+				return lotVar;
+			}
+			
+			switch (correctOutcome.fuel) {
+				case "+" : information.fuel+= little();
+				break;
+				case "++" :	information.fuel+= lot();
+				break;
+				case "-" : information.fuel-= little();
+				break; 
+				case "--" : information.fuel-= lot();
+				break;
+			}
+			switch (correctOutcome.crew) {
+				case "+" : information.crew+= little();
+				break;
+				case "++" :	information.crew+= lot();
+				break;
+				case "-" : information.crew-= little();
+				break; 
+				case "--" : information.crew-= lot();
+				break;
+			}
+			switch (correctOutcome.metal) {
+				case "+" : information.metal+= little();
+				break;
+				case "++" :	information.metal+= lot();
+				break;
+				case "-" : information.metal-= little();
+				break; 
+				case "--" : information.metal-= lot();
+				break;
+			}
+			switch (correctOutcome.credit) {
+				case "+" : information.credit+= little();
+				break;
+				case "++" :	information.credit+= lot();
+				break;
+				case "-" :information.credit-= little();
+				break; 
+				case "--" : information.credit-= lot();
+				break;
+			}
+			render();
+		}
+// LAUNCH WHEN STARTING THE GAME		
+		function launch() {
+			$("#display").html("Ready to leave spaceport to begin voyage");
+			$(".choices").html("Launch");
+		}
+		$(".choices").on("click",turn);
+		
+// RENDER ALL VALUES
+		function render() {
+			var encodedMsg = $('<div />').text(information.name).html();
+			$("#name").html("Captain <b>" + encodedMsg + "</b>");
+			$("#explored").html("Sectors Explored: <b>" + information.explored + "</b>");
+		/** DISPLAYS EXACT AMOUNT OF MATERIALS
+			$("#fuelText").html("Fuel: <b>" + information.fuel + "</b>");
+			$("#crewText").html("Crew: <b>" + information.crew + "</b>");
+			$("#metalText").html("Metal: <b>" + information.metal + "</b>");
+			$("#creditText").html("Credits: <b>" + information.credit + "</b>");
+		**/
+			$("#fuelBar").css( "width", information.fuel + "%" );
+			$("#crewBar").css( "width", information.crew + "%" );
+			$("#metalBar").css( "width", information.metal + "%" );
+			$("#creditBar").css( "width", information.credit + "%" );
+		}
+	</script>
+</html>

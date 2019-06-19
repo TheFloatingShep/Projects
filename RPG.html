@@ -1,0 +1,351 @@
+<!doctype>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+		<title>Tile Game</title>
+		<style>
+	/* Body */
+			body {
+				text-align: center;
+				min-width: 800px;
+			}
+			hr {
+				border: 2px solid black;
+			}
+			.title {
+				font-size: 40px;
+				font-weight: bold;
+			}
+			#game {
+				border: 2px solid black;
+				width: 100%;
+			}
+	/* Board */
+			#board {
+				border: 1px solid black;
+				padding: 10px;
+			}
+			.row {
+				border: 1px solid red;
+				display: table;
+				margin: 0 auto;
+			}
+			.column {
+				width: 100px;
+				height: 100px;
+				border: 1px solid red;
+				display: inline-block;
+				transition: 0.2s;
+			}
+			.column:hover {
+				cursor: pointer;
+			}
+	/* Game */
+			#player {
+				font-size: 30px;
+				position: absolute;
+			}
+	/* New Game */
+			#newGame {
+				padding: 5px;
+				position: absolute;
+				top: 40%;
+				width: 98%;
+				background-color: black;
+				color: white;
+				min-width: 790px;
+			}
+			#newGameTitle {
+				width: 400px;
+				margin: 0 auto;
+			}
+			#newGameText {
+				padding: 3px;
+				width: 400px;
+				margin: 0 auto;
+			}
+	/* Continue Game */
+			#continueGame {
+				padding: 5px;
+				position: absolute;
+				top: 40%;
+				width: 98%;
+				background-color: black;
+				color: white;
+				min-width: 790px;
+				padding: 5px;
+			}
+			#continueGameTitle {
+				width: 400px;
+				margin: 0 auto;
+			}
+			#continueGameText {
+				padding: 3px;
+				width: 400px;
+				margin: 0 auto;
+			}
+			.continueButton {
+				border: 1px solid white;
+				display: inline-block;
+				padding: 3px;
+				transition: 0.2s;
+			}
+			.continueButton:hover {
+				background-color: #444444;
+				cursor: pointer;
+			}
+		</style>
+		<script>
+		</script>
+	</head>
+	<body onLoad="startGame()">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<div id="title1" class="title"></div>
+		<div id="game">
+			<div id="board">
+				<div id="row1" class="row">
+					<div id="row1column1" class="column corner">
+						
+					</div>
+					<div id="row1column2" class="column">
+						
+					</div>
+					<div id="row1column3" class="column">
+						
+					</div>
+					<div id="row1column4" class="column">
+						
+					</div>
+					<div id="row1column5" class="column">
+						
+					</div>
+					<div id="row1column6" class="column corner">
+						
+					</div>
+				</div>
+				<div id="row2" class="row">
+					<div id="row2column1" class="column">
+						
+					</div>
+					<div id="row2column2" class="column">
+						
+					</div>
+					<div id="row2column3" class="column">
+						
+					</div>
+					<div id="row2column4" class="column">
+						
+					</div>
+					<div id="row2column5" class="column">
+						
+					</div>
+					<div id="row2column6" class="column">
+						
+					</div>
+				</div>
+				<div id="row3" class="row">
+					<div id="row3column1" class="column">
+						
+					</div>
+					<div id="row3column2" class="column">
+						
+					</div>
+					<div id="row3column3" class="column">
+						
+					</div>
+					<div id="row3column4" class="column">
+						
+					</div>
+					<div id="row3column5" class="column">
+						
+					</div>
+					<div id="row3column6" class="column">
+						
+					</div>
+				</div>
+				<div id="row4" class="row">
+					<div id="row4column1" class="column">
+						
+					</div>
+					<div id="row4column2" class="column">
+						
+					</div>
+					<div id="row4column3" class="column">
+						
+					</div>
+					<div id="row4column4" class="column">
+						
+					</div>
+					<div id="row4column5" class="column">
+						
+					</div>
+					<div id="row4column6" class="column">
+						
+					</div>
+				</div>
+				<div id="row5" class="row">
+					<div id="row5column1" class="column">
+						
+					</div>
+					<div id="row5column2" class="column">
+						
+					</div>
+					<div id="row5column3" class="column">
+						
+					</div>
+					<div id="row5column4" class="column">
+						
+					</div>
+					<div id="row5column5" class="column">
+						
+					</div>
+					<div id="row5column6" class="column">
+						
+					</div>
+				</div>
+				<div id="row6" class="row">
+					<div id="row6column1" class="column corner">
+						
+					</div>
+					<div id="row6column2" class="column">
+						
+					</div>
+					<div id="row6column3" class="column">
+						
+					</div>
+					<div id="row6column4" class="column">
+						
+					</div>
+					<div id="row6column5" class="column">
+						
+					</div>
+					<div id="row6column6" class="column corner">
+						
+					</div>
+				</div>
+			</div>
+			<div id="newGame">
+				<div id="newGameTitle">NEW GAME</div>
+				<div id="newGameText">Pick a corner tile to begin</div>
+			</div>
+			<div id="continueGame">
+				<div id="continueGameTitle">Continue Game?</div>
+				<div id="continueGameText">Would you like to pick up where you left off?</div>
+				<div class="continueButton" id="continueYes">YES</div>
+				<div class="continueButton" id="continueNo">NO</div>
+			</div>
+		</div>
+		<div id="title2" class="title"></div>
+		<div id="player"><i class="fas fa-user-circle"></i></div>
+	</body>
+	<script>
+// TITLE
+		$("#title1").text("<RPG>");
+		$("#title2").text("</RPG>");
+		
+// CONTINUE GAME
+		// 0 = new game
+		let gameOn = 0;
+		// last tile player was on
+		let currentTile;
+		
+	// SAVE DATA	
+		function saveData() {
+			localStorage.setItem("nowGame", JSON.stringify(gameOn))
+			localStorage.setItem("nowTile", JSON.stringify(currentTile))
+		}
+		
+	// CONTINUE MENU
+		function continueGame() {
+			gameOn = 2;
+			$("#newGame").css("display", "none");
+			$("#continueGame").css("display", "block");
+			$("#player").css("display", "none");
+		}
+		function doContinue(evt) {
+			switch(evt.target.id) {
+				case "continueYes" : 
+					currentTile = JSON.parse(localStorage.getItem("nowTile"));
+					$("#continueGame").css("display", "none");
+					$("#player").css("display", "block");
+					$("#player").prop("player", "player").appendTo("#" + currentTile);
+					gameOn = 1;
+					saveData();
+				break;
+				case "continueNo" : 
+					gameOn = 0;
+					localStorage.clear();
+					startGame();
+				break;
+			}
+		}
+		$(".continueButton").on("click", doContinue);
+		
+// START GAME
+		function startGame() {
+			gameOn = JSON.parse(localStorage.getItem("nowGame"))
+			if (gameOn == null) {
+				gameOn = 0;
+			}
+			if (gameOn == 0) {
+				$("#player").css("display", "none");
+				$("#newGame").css("display", "block");
+				$("#continueGame").css("display", "none");
+			}
+			else {
+				continueGame();
+			}
+		}
+		
+// MOVE PLAYER
+		let tName;
+		function movePlayer(evt) {
+			switch(gameOn) {
+				// New Game
+				case 0 : 
+					if (evt.target.className == "column corner") {
+						tName = evt.target.id;
+						$("#player").prop("player", "player").appendTo("#" + tName);
+						$("#player").css("display", "block");
+						gameOn = 1;
+						$("#newGame").css("display","none");
+						currentTile = evt.target.id;
+						saveData();
+					};
+				break;
+				// In game
+				case 1 : 
+					tName = evt.target.id;
+					// Find X coordinate
+					function findX(x) {
+						let xEnd = x.indexOf("column");
+						let xStart = 3;
+						let xPos = x.substring(xStart,xEnd)
+						return xPos;
+					}
+					// Find Y coordinate
+					function findY(y) {
+						let yEnd = y.length;
+						let yStart = y.indexOf("column") + 6;
+						let yPos = y.substring(yStart,yEnd)
+						return yPos;
+					}
+					// Move player
+					if ((findX(tName) - findX(currentTile) >= -1 && findX(tName) - findX(currentTile) <= 1) && (findY(tName) - findY(currentTile) >= -1 && findY(tName) - findY(currentTile) <= 1)) {
+						$("#player").prop("player", "player").appendTo("#" + tName);
+						currentTile = tName;
+						saveData();
+					}
+				break;
+				// Continue game menu and mid-turn --> DOES NOTHING ON CLICK
+				case 2 :
+				break;
+			}
+		}
+		$("div.column").on("click", movePlayer);
+		
+// ON TILE
+	// New Tile
+		
+	</script>
+</html>
