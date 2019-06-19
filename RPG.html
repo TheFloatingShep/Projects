@@ -254,6 +254,14 @@
 		function saveData() {
 			localStorage.setItem("nowGame", JSON.stringify(gameOn))
 			localStorage.setItem("nowTile", JSON.stringify(currentTile))
+			localStorage.setItem("allTiles", JSON.stringify(tiles))
+		}
+		
+	// GET DATA
+		function getData() {
+			gameOn = JSON.parse(localStorage.getItem("nowGame"));
+			currentTile = JSON.parse(localStorage.getItem("nowTile"));
+			tiles = JSON.parse(localStorage.getItem("allTiles"));
 		}
 		
 	// CONTINUE MENU
@@ -266,7 +274,6 @@
 		function doContinue(evt) {
 			switch(evt.target.id) {
 				case "continueYes" : 
-					currentTile = JSON.parse(localStorage.getItem("nowTile"));
 					$("#continueGame").css("display", "none");
 					$("#player").css("display", "block");
 					$("#player").prop("player", "player").appendTo("#" + currentTile);
@@ -284,7 +291,7 @@
 		
 // START GAME
 		function startGame() {
-			gameOn = JSON.parse(localStorage.getItem("nowGame"))
+			getData();
 			if (gameOn == null) {
 				gameOn = 0;
 			}
@@ -311,6 +318,7 @@
 						gameOn = 1;
 						$("#newGame").css("display","none");
 						currentTile = evt.target.id;
+						startTile(tName);
 						saveData();
 					};
 				break;
@@ -335,6 +343,7 @@
 					if ((findX(tName) - findX(currentTile) >= -1 && findX(tName) - findX(currentTile) <= 1) && (findY(tName) - findY(currentTile) >= -1 && findY(tName) - findY(currentTile) <= 1)) {
 						$("#player").prop("player", "player").appendTo("#" + tName);
 						currentTile = tName;
+						onTile(tName);
 						saveData();
 					}
 				break;
@@ -346,7 +355,60 @@
 		$("div.column").on("click", movePlayer);
 		
 // ON TILE
-	// New Tile
+	// START TILE
+		let tiles;
+		function startTile(tName) {
+			tiles = [];
+			let startTypes = ["Forest", "Plains"];
+			let type = startTypes[Math.floor(Math.random() * 2)];
+			tiles.push({
+					tile : tName,
+					type : type,
+					building : "Nothing",
+					enemy : "Nothing"
+				});
+			$("#" + tName).html(type + " <br> Nothing <br> Nothing")
+			console.log(tiles[0]);
+		}
 		
+	// NEW TILE - checks to see if tile is unexplored
+		function onTile(tName) {
+			function search(nameKey, myArray){
+				for (let i = 0; i < myArray.length; i++) {
+					if (myArray[i].tile == nameKey) {
+						return myArray[i];
+					}
+				}
+			}
+			if (search(tName, tiles)) {
+				console.log(search(tName, tiles));
+			}
+			else {
+				let possibleTypes = ["Forest", "Plains", "Mountains", "Desert", "Ocean"];
+				let landBuildings = ["Nothing", "River", "Village", "temple",]
+				let oceanBuildings = ["Nothing", "Sunken Ship", "Water Temple",]
+				let landEnemys = ["Nothing", "Bandits", "Undead", "Wolves"];
+				let oceanEnemys = ["Nothing", "Pirate Ship"]
+				let type = possibleTypes[Math.floor(Math.random() * 5)];
+				let building;
+				let enemy;
+				if (type == "Ocean") {
+					building = oceanBuildings[Math.floor(Math.random() * 3)];
+					enemy = oceanEnemys[Math.floor(Math.random() * 2)];
+				}
+				else {
+					building = landBuildings[Math.floor(Math.random() * 4)];
+					enemy = landEnemys[Math.floor(Math.random() * 3)];
+				}
+				tiles.push({
+					tile : tName,
+					type : type,
+					building : building,
+					enemy : enemy
+				});
+				$("#" + tName).html(type + " <br> " + building + " <br> " + enemy)
+			}
+			saveData();
+		}
 	</script>
 </html>
